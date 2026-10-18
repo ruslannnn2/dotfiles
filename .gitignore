@@ -2,3 +2,6 @@
 !/.gitignore
 !/.config/
 !/.nix/
+
+/.config/teams-for-linux
+/.config/tailscale

@@ -19,6 +19,7 @@
       "slack"
       "terraform"
       "cider-2"
+      # "teams"
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -78,6 +79,21 @@
   services.blueman.enable = true;
 
   services.asusd.enable = true;
+
+  services.auto-cpufreq = {
+    enable = true;
+    settings = {
+      battery = {
+        governor = "powersave";
+        energy_performance_preference = "power";
+        turbo = "never";
+      };
+      charger = {
+        governor = "powersave";
+        turbo = "auto";
+      };
+    };
+  };
 
   environment.etc."asusd/.keep".text = "";
 
@@ -167,6 +183,11 @@
     yazi
     fastfetch
     cider-2
+    # teams
+    teams-for-linux
+    verilator
+    clang
+    gram
 
     #lsp
     clang-tools

@@ -84,7 +84,7 @@
   },
   "cpu": {
     "interval": 2,
-    "format": "<span size='10pt'></span> {icon} {usage}%",
+    "format": "<span size='20'></span> {icon} {usage}%",
       "format-icons": [
       "<span size='8pt'>━━━━━━━━━━</span>",
       "<span size='8pt'>■━━━━━━━━━</span>",

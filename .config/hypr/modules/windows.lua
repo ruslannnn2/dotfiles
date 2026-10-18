@@ -12,7 +12,7 @@ hl.config({
 
 hl.window_rule({
   match = {class = "kitty"},
-  no_blur = true
+  -- no_blur = true
 })
 
 

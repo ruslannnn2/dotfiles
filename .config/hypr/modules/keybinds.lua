@@ -2,6 +2,7 @@ local mainMod = "SUPER"
 local terminal = "kitty"
 local menu = "rofi -show drun"
 local windowSwitcher = "rofi -show window"
+local monitor_flag = false
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal), {
     description = "Open terminal",
@@ -97,3 +98,15 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -d intel_backlig
     locked = true,
     repeating = true,
 })
+
+-- switch my laptop monitor between the two refresh modes
+hl.bind(mainMod .. " + SHIFT + M", function()
+    local refresh_rate = monitor_flag and 60 or 240
+    hl.monitor({
+        output = "eDP-1",
+        mode = "2560x1600@" .. refresh_rate,
+        position = "1152x1152",
+        scale = 1,
+    })
+    monitor_flag = not monitor_flag
+end)
