@@ -6,21 +6,15 @@
 }:
 
 {
+  nixpkgs.config.allowUnfree = true;
   imports = [
     ./hardware-configuration.nix
-    ./modules/cardwired.nix
+    ./modules/languages.nix
+    ./modules/packages.nix
+    ./modules/slack.nix
+    ./modules/teams.nix
+    ./modules/hardware-dev.nix
   ];
-
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "nvidia-settings"
-      "nvidia-x11"
-      "slack"
-      "terraform"
-      "cider-2"
-      # "teams"
-    ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -36,14 +30,7 @@
 
   security.rtkit.enable = true;
 
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    extraPackages = with pkgs; [ intel-media-driver ];
-  };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-
+  hardware.graphics.extraPackages = with pkgs; [intel-media-driver];
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
@@ -95,8 +82,6 @@
     };
   };
 
-  environment.etc."asusd/.keep".text = "";
-
   services.udev.extraRules = ''
     KERNEL=="card*", KERNELS=="0000:00:02.0", SUBSYSTEM=="drm", SUBSYSTEMS=="pci", SYMLINK+="dri/intel-igpu"
     KERNEL=="card*", KERNELS=="0000:01:00.0", SUBSYSTEM=="drm", SUBSYSTEMS=="pci", SYMLINK+="dri/nvidia-dgpu"
@@ -141,65 +126,6 @@
     withUWSM = true;
   };
   programs.waybar.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    neovim
-    wget
-    git
-    gh
-    ripgrep
-    fd
-    unzip
-    curl
-    rustc
-    cargo
-    kitty
-    rofi
-    btop
-    wlr-randr
-    brightnessctl
-    mako
-    tmux
-    awscli2
-    ssm-session-manager-plugin
-    bibata-cursors
-    gzip
-    gnutar
-    nodejs
-    python3
-    codex
-    helium
-    hyprpaper
-    grim
-    slurp
-    swappy
-    slack
-    nwg-look
-    gsettings-desktop-schemas
-    dconf
-    coder
-    mosh
-    tailscale
-    yazi
-    fastfetch
-    cider-2
-    # teams
-    teams-for-linux
-    verilator
-    clang
-    gram
-
-    #lsp
-    clang-tools
-    vscode-langservers-extracted
-    lua-language-server
-    svelte-language-server
-    vtsls
-    rust-analyzer
-    nixd
-    nixfmt
-
-  ];
 
   nix.settings.experimental-features = [
     "nix-command"

@@ -106,7 +106,7 @@ hl.bind(mainMod .. " + SHIFT + M", function()
         output = "eDP-1",
         mode = "2560x1600@" .. refresh_rate,
         position = "1152x1152",
-        scale = 1,
+        scale = 1.25,
     })
     monitor_flag = not monitor_flag
 end)
