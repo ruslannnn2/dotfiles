@@ -30,7 +30,15 @@
 
   security.rtkit.enable = true;
 
+  services.cardwired = {
+    enable = true;
+    settings = {
+      battery_auto_switch_mode = "integrated";
+      experimental_nvidia_block = true;
+    };
+  };
   hardware.graphics.extraPackages = with pkgs; [intel-media-driver];
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
