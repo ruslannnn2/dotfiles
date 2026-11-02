@@ -13,5 +13,6 @@ vim.opt.rtp:prepend(lazypath)
  
 require("lazy").setup({
     spec = "rusak.lazy",
+    rocks = { enabled = false }, -- No configured plugins use LuaRocks.
     change_detection = { notify = false }
 })
