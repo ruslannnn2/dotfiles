@@ -10,7 +10,9 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/languages.nix
+    ./modules/fonts.nix
     ./modules/packages.nix
+    ./modules/zen.nix
     ./modules/slack.nix
     ./modules/teams.nix
     ./modules/hardware-dev.nix
@@ -125,9 +127,6 @@
     MOZ_ENABLE_WAYLAND = "1";
   };
 
-  fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
-  ];
   services.tailscale.enable = true;
   programs.hyprland = {
     enable = true;
@@ -135,6 +134,7 @@
   };
   programs.waybar.enable = true;
 
+  programs.firefox.enable = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"

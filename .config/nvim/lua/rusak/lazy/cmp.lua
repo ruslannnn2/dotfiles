@@ -51,8 +51,11 @@ return {
         capabilities = capabilities,
       })
 
-
       lsp.config("rust_analyzer", {
+        capabilities = capabilities,
+      })
+
+      lsp.config("svls", {
         capabilities = capabilities,
       })
 
@@ -80,7 +83,11 @@ return {
           },
         },
       })
-      vim.lsp.enable({ "lua_ls", "pyright", "clangd", "vtsls", "eslint", "svelte", "rust_analyzer", "nixd" })
+      vim.lsp.enable({ "lua_ls",
+      "pyright", 
+      "clangd", 
+      "vtsls", "eslint", "svelte", "rust_analyzer", "nixd",
+      "svls"})
     end,
   },
 

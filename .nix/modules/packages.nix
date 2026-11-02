@@ -38,6 +38,12 @@
     fastfetch
     cider-2
     gram
+    ani-cli
+    mpv
+    vesktop
+    gnumake
+    bear
+    fzf
   ];  
 
 }

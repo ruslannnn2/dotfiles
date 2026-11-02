@@ -26,3 +26,9 @@ hl.monitor({
     scale = 1.25,
     transform = 3,
 })
+
+hl.monitor({
+    output = "DP-1",
+    mode = "3840x2160@30",
+    position = "1152x0",
+})

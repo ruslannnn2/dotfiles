@@ -222,7 +222,8 @@
         "green": 50,
         "yellow": 20,
         "type": 0
-      }
+      },
+      "format": "{capacity} - {time-hours}:{time-minutes} remaining"
     },
     {
       "type": "poweradapter",

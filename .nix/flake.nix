@@ -9,11 +9,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = { nixpkgs, helium, ... }: {
+  outputs = { nixpkgs, helium, zen-browser, ... }: {
     nixosConfigurations.rusmachine = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs.zen = zen-browser;
 
       modules = [
         ./configuration.nix
