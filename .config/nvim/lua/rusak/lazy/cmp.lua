@@ -55,7 +55,7 @@ return {
         capabilities = capabilities,
       })
 
-      lsp.config("svls", {
+      lsp.config("slang_server", {
         capabilities = capabilities,
       })
 
@@ -87,7 +87,7 @@ return {
       "pyright", 
       "clangd", 
       "vtsls", "eslint", "svelte", "rust_analyzer", "nixd",
-      "svls"})
+      "slang_server"})
     end,
   },
 

@@ -84,7 +84,7 @@
   },
   "cpu": {
     "interval": 2,
-    "format": "<span size='20'></span> {icon} {usage}%",
+    "format": "<span size='10pt'></span>   {icon}   {usage}%",
       "format-icons": [
       "<span size='8pt'>━━━━━━━━━━</span>",
       "<span size='8pt'>■━━━━━━━━━</span>",
@@ -101,7 +101,7 @@
   },
   "memory": {
     "interval": 2,
-    "format": "<span size='9pt'></span> {icon} {used:0.1f}G",
+    "format": "<span size='9pt'></span>   {icon}   {used:0.1f}G",
       "format-icons": [
       "<span size='8pt'>━━━━━━━━━━</span>",
       "<span size='8pt'>■━━━━━━━━━</span>",
@@ -134,8 +134,8 @@
   "network": {
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "format": "{icon}",
-    "format-wifi": "{icon} {signalStrength}%",
-    "format-ethernet": "󰈀 {bandwidthDownBytes:=}",
+    "format-wifi": "{icon}   {signalStrength}%",
+    "format-ethernet": "󰈀   {bandwidthDownBytes:=}",
     "format-disconnected": "󰤮",
     "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
@@ -144,9 +144,9 @@
     "spacing": 1
   },
   "battery": {
-    "format": "{icon} {capacity}%",
-    "format-discharging": "{icon} {capacity}%",
-    "format-charging": "{icon} {capacity}%",
+    "format": "{icon}   {capacity}%",
+    "format-discharging": "{icon}   {capacity}%",
+    "format-charging": "{icon}   {capacity}%",
     "format-plugged": "",
     "format-icons": {
       "charging": [
@@ -186,14 +186,14 @@
     }
   },
   "bluetooth": {
-    "format": " {status} {num_connections}",
-    "format-off": "󰂲 OFF",
-    "format-disabled": "󰂲 {status}",
-    "format-connected": "󰂱 {num_connections}",
+    "format": "   {status} {num_connections}",
+    "format-off": "󰂲   OFF",
+    "format-disabled": "󰂲   {status}",
+    "format-connected": "󰂱   {num_connections}",
     "tooltip-format": "Devices connected: {num_connections}"
   },
   "pulseaudio": {
-    "format": "{icon} {volume}%",
+    "format": "{icon}   {volume}%",
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
@@ -207,7 +207,7 @@
   "backlight": {
         "device": "intel_backlight",
         "rotate": 0,
-        "format": "{icon} {percent}%",
+        "format": "{icon}   {percent}%",
         "tooltip-format": "🌕 {percent}%",
         "on-scroll-up": "brightnessctl -d intel_backlight -e4 -n2 set 5%+",
         "on-scroll-down": "brightnessctl -d intel_backlight -e4 -n2 set 5%-",

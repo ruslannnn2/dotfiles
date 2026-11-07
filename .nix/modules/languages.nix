@@ -18,7 +18,7 @@
     svelte-language-server
     vtsls
     rust-analyzer
-    svls
+    slang-server
 
   ];
 }
